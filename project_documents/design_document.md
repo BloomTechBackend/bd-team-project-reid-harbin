@@ -1,4 +1,4 @@
-# [team name] Design Document
+# [TouchBase] Design Document
 
 ## Instructions
 
@@ -35,12 +35,18 @@ you are still debating internally that you might like help working through.*
 would like to do (and why). You may also include use cases for yourselves, or
 for the organization providing the product to customers.*
 
-U1. *As a [product] customer, I want to `<result>` when I `<action>`*
-
-U2. *As a [product] customer, I want to view my grocery list when I log into the
-grocery list page*
-    
-U3. ...
+U1. As a TouchBase customer I want to create a family
+U2. As a TouchBase customer I want to join an existing customer with an existing familyId
+U3. As a TouchBase customer I want to see details about my family when I go to the family page
+U4. As a TouchBase customer I want to create an event when I go to the events page
+U5. As a TouchBase customer I want to join or leave any event with an eventId
+U6. As a TouchBase customer I want to add or remove family members of an event I created with the family member's username
+U8. As a TouchBase customer I want to view my details when I go to my account page
+U8. As a TouchBase customer I want to be notified if someone joins or leaves one of my events
+U9. As a TouchBase customer I want to be notified if someone adds or removes me from an event
+U10. As a TouchBase customer I want to view all of my notifications when I go to the notifications page
+U10. As a TouchBase customer I want to delete notifications I have read with a provided notificationId
+U11. As a TouchBase customer I want to view all the events in family when I go to the events page
 
 ## 4. Project Scope
 
@@ -48,6 +54,8 @@ U3. ...
 what questions to ask to make sure you are solving for what you say and stops
 discussions from getting sidetracked by aspects you do not intend to handle in
 your design.*
+
+I intend for
 
 ### 4.1. In Scope
 

@@ -1,0 +1,1072 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TouchBase",
+    "version": "0.0.1"
+  },
+  "paths": {
+    "/member": {
+      "post": {
+        "tags": [
+          "Member"
+        ],
+        "description": "This is used to create a member",
+        "parameters": [
+          {
+            "name": "memberUserame",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MemberUsername"
+            }
+          },
+          {
+            "name": "memberPassword",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MemberPassword123"
+            }
+          },
+          {
+            "name": "memberName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "John Doe"
+            }
+          },
+          {
+            "name": "memberAge",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": 21
+            }
+          },
+          {
+            "name": "memberBithday",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "01/23"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/account": {
+      "get": {
+        "tags": [
+          "Member"
+        ],
+        "description": "This is used to retrieve a members account information",
+        "parameters": [
+          {
+            "name": "familyId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "memberPassword",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MemberPassword123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Member"
+        ],
+        "description": "This is used to delete a members account",
+        "parameters": [
+          {
+            "name": "familyId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "memberPassword",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MemberPassword123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/notifications": {
+      "get": {
+        "tags": [
+          "Member"
+        ],
+        "description": "This is used to get the member's notifications",
+        "parameters": [
+          {
+            "name": "familyId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/notifications/{notificationId}": {
+      "get": {
+        "tags": [
+          "Member"
+        ],
+        "description": "This is used to get a specific notifications",
+        "parameters": [
+          {
+            "name": "familyId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "NNNNNNN-NI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Member"
+        ],
+        "description": "This is used to delete the member's notifications",
+        "parameters": [
+          {
+            "name": "familyId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "NNNNNNN-NI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/member/{memberId}/create": {
+      "post": {
+        "tags": [
+          "Family"
+        ],
+        "description": "This is used to create a family",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI-0000001"
+            }
+          },
+          {
+            "name": "familyName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "The Doe Family"
+            }
+          },
+          {
+            "name": "familyPassword",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Password123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Family"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/join": {
+      "put": {
+        "tags": [
+          "Family"
+        ],
+        "description": "This is used to add a new member to an existing family",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "familyId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "memberId": "MMMMMMM-MI0000001",
+                    "memberName": "Jake Doe",
+                    "memberUsername": "NewUsername987",
+                    "memberAge": 23,
+                    "memberBirthday": "01/23"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/family": {
+      "get": {
+        "tags": [
+          "Family"
+        ],
+        "description": "This is used to retrieve family details",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Family"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/family/{familyMemberUsername}": {
+      "get": {
+        "tags": [
+          "Family"
+        ],
+        "description": "This is used to retrieve the schedule of a family member",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "familyMemberUsername",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FamilyMemberUsername"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Family"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/events": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to retrieve family events",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "in": "query",
+            "required": true,
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all",
+                "today",
+                "week",
+                "month"
+              ]
+            }
+          },
+          {
+            "name": "eventDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "01/02/2023"
+            }
+          },
+          {
+            "name": "eventStartTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "9:00 am"
+            }
+          },
+          {
+            "name": "eventEndTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "9:00 pm"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to create an event",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "eventName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Event Name"
+            }
+          },
+          {
+            "in": "query",
+            "name": "eventType",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "breakfast",
+                "lunch",
+                "dinner",
+                "work",
+                "school",
+                "extracurricula",
+                "misc"
+              ]
+            }
+          },
+          {
+            "name": "eventDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "01/02/23"
+            }
+          },
+          {
+            "name": "eventStartTime",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 0
+            }
+          },
+          {
+            "name": "eventEndTime",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": 1440
+            }
+          },
+          {
+            "name": "familyMemberIds",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "RHNAYN-MI0000001",
+                "OISNSY-MI0000002"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/events/{eventId}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to retrieve a specific event",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Events"
+        ],
+        "description": "Used to delete an event if the member created it",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "FFFFFFF-FI0000001"
+            }
+          },
+          {
+            "name": "memberId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/events/{eventId}/join": {
+      "put": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to join an event",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "EEEEEEE-EI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/events/{eventId}/leave": {
+      "put": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to leave an event",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "EEEEEEE-EI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/events/{eventId}/add-member": {
+      "put": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to add a member to an event you own if it doesn't conflict with their schedule",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "memberUsernameToAdd",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MemberUserNameToAdd"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "EEEEEEE-EI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/member/{memberId}/events/{eventId}/remove-member": {
+      "put": {
+        "tags": [
+          "Events"
+        ],
+        "description": "This is used to remove a member to an event you own",
+        "parameters": [
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MMMMMMM-MI0000001"
+            }
+          },
+          {
+            "name": "memberUsernameToAdd",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "MemberUserNameToRemove"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "EEEEEEE-EI0000001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Member": {
+        "type": "object",
+        "properties": {
+          "memberId": {
+            "type": "string",
+            "example": "MMMMMMM-MI0000001"
+          },
+          "memberFamilyId": {
+            "type": "string",
+            "example": "FFFFFFF-FI0000001"
+          },
+          "memberName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "memberAge": {
+            "type": "integer",
+            "format": "int64",
+            "example": 21
+          },
+          "memberBirthday": {
+            "type": "string",
+            "example": "01/23"
+          },
+          "memberHasFamily": {
+            "type": "boolean",
+            "example": true
+          },
+          "memberNotifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            }
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "example": "NNNNNNN-NI0000001"
+          },
+          "notificationSenderName": {
+            "type": "string",
+            "example": "Sender Name"
+          },
+          "notificationDate": {
+            "type": "string",
+            "example": "01/12/23"
+          },
+          "notificationContent": {
+            "type": "string",
+            "example": "You were added to an event"
+          }
+        }
+      },
+      "Family": {
+        "type": "object",
+        "properties": {
+          "familyId": {
+            "type": "string",
+            "example": "FFFFFFF-FI0000001"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "The Doe Family"
+          },
+          "familyPassword": {
+            "type": "string",
+            "example": "Password12345"
+          },
+          "familyEventIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "EEEEEEE-EI0000001",
+                "EEEEEEE-EI0000002"
+              ]
+            }
+          },
+          "familyMemeberIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "MMMMMMM-MI0000001",
+                "MMMMMMM-MI0000002"
+              ]
+            }
+          }
+        }
+      },
+      "Event": {
+        "type": "object",
+        "properties": {
+          "eventfamilyId": {
+            "type": "string",
+            "example": "FFFFFFF-FI0000001"
+          },
+          "eventId": {
+            "type": "string",
+            "example": "EEEEEEE-EI0000001"
+          },
+          "eventOwnerId": {
+            "type": "string",
+            "example": "MMMMMMM-MI0000001"
+          },
+          "eventDescription": {
+            "type": "string",
+            "example": "Details about the event"
+          },
+          "eventType": {
+            "type": "string",
+            "enum": [
+              "breakfast",
+              "lunch",
+              "dinner",
+              "work",
+              "school",
+              "extracurricular",
+              "misc"
+            ]
+          },
+          "eventDate": {
+            "type": "string",
+            "example": "01/21/23"
+          },
+          "eventStartTime": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1440,
+            "example": 0
+          },
+          "eventEndTime": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1440,
+            "example": 1440
+          },
+          "eventFamilyMemberIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "MMMMMMM-MI0000001",
+                "MMMMMMM-MI0000002"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
