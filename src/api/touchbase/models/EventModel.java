@@ -4,13 +4,12 @@ import java.util.List;
 
 public class EventModel {
     private String eventId;
-    private String eventOwner;
+    private String eventOwnerId;
     private String eventDescription;
     private String eventType;
     private String eventDate;
-    private String eventStartTime;
-    private String eventEndTime;
-    private List<String> eventFamilyMemberNames;
+    private String eventTimeRange;
+    private List<String> eventFamilyMemberIds;
 
     public EventModel() {
 
@@ -18,13 +17,12 @@ public class EventModel {
 
     public EventModel(Builder builder) {
         this.eventId = builder.eventId;
-        this.eventOwner = builder.eventOwnerId;
+        this.eventOwnerId = builder.eventOwnerId;
         this.eventDescription = builder.eventDescription;
         this.eventType = builder.eventType;
         this.eventDate = builder.eventDate;
-        this.eventStartTime = builder.eventStartTime;
-        this.eventEndTime = builder.eventEndTime;
-        this.eventFamilyMemberNames = builder.eventFamilyMemberNames;
+        this.eventTimeRange = builder.eventTimeRange;
+        this.eventFamilyMemberIds = builder.eventFamilyMemberIds;
     }
     public static Builder builder() {
         return new Builder();
@@ -34,13 +32,12 @@ public class EventModel {
     public String toString() {
         return "EventModel{" +
                 "eventId='" + eventId + '\'' +
-                ", eventOwnerId='" + eventOwner + '\'' +
+                ", eventOwnerId='" + eventOwnerId + '\'' +
                 ", eventDescription='" + eventDescription + '\'' +
                 ", eventType='" + eventType + '\'' +
                 ", eventDate='" + eventDate + '\'' +
-                ", eventStartTime='" + eventStartTime + '\'' +
-                ", eventEndTime='" + eventEndTime + '\'' +
-                ", eventFamilyMemberNames=" + eventFamilyMemberNames +
+                ", eventTimeRange='" + eventTimeRange + '\'' +
+                ", eventFamilyMemberNames=" + eventFamilyMemberIds +
                 '}';
     }
 
@@ -50,9 +47,8 @@ public class EventModel {
         private String eventDescription;
         private String eventType;
         private String eventDate;
-        private String eventStartTime;
-        private String eventEndTime;
-        private List<String> eventFamilyMemberNames;
+        private String eventTimeRange;
+        private List<String> eventFamilyMemberIds;
 
         public Builder withEventId(String eventId) {
             this.eventId = eventId;
@@ -74,17 +70,17 @@ public class EventModel {
             this.eventDate = eventDate;
             return this;
         }
-        public Builder withEventStartTime(String eventStartTime) {
-            this.eventStartTime = eventStartTime;
-            return this;
-        }
-        public Builder withEventEndTime(String eventEndTime) {
-            this.eventEndTime = eventEndTime;
+        public Builder withEventTimeRange(String eventTimeRange) {
+            this.eventTimeRange = eventTimeRange;
             return this;
         }
         public Builder withEventFamilyMemberNames(List<String> eventFamilyMemberNames) {
-            this.eventFamilyMemberNames = eventFamilyMemberNames;
+            this.eventFamilyMemberIds = eventFamilyMemberNames;
             return this;
+        }
+
+        public EventModel build() {
+            return new EventModel(this);
         }
     }
 }

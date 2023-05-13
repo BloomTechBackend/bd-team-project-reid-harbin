@@ -1,12 +1,12 @@
 package api.touchbase;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class NotificationContent {
     private String notificationHeadline;
     private String notificationDescription;
     private String notificationSenderName;
-    private LocalDateTime notificationDate;
+    private String notificationDate;
 
     public String getNotificationHeadline() {
         return notificationHeadline;
@@ -32,11 +32,11 @@ public class NotificationContent {
         this.notificationSenderName = notificationSenderName;
     }
 
-    public LocalDateTime getNotificationDate() {
+    public String getNotificationDate() {
         return notificationDate;
     }
 
-    public void setNotificationDate(LocalDateTime notificationDate) {
+    public void setNotificationDate(String notificationDate) {
         this.notificationDate = notificationDate;
     }
 }

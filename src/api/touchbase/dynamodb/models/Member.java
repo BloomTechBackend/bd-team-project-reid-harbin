@@ -1,13 +1,14 @@
 package api.touchbase.dynamodb.models;
 
 import api.touchbase.NotificationContent;
-import api.touchbase.converters.BirthDateLocalDateTimeConverter;
+import api.touchbase.converters.LocalDateConverter;
+import api.touchbase.converters.NotificationsListConverter;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @DynamoDBTable(tableName = "touchbase_members")
@@ -15,9 +16,9 @@ public class Member {
     private String memberId;
     private String memberFamilyId;
     private String memberName;
-    private int memberAge;
+    private String memberPassword;
     private boolean memberHasFamily;
-    private LocalDateTime memberBirthday;
+    private LocalDate memberBirthday;
     private List<NotificationContent> memberNotifications;
 
     @DynamoDBHashKey(attributeName = "memberId")
@@ -47,17 +48,17 @@ public class Member {
         this.memberName = memberName;
     }
 
-    @DynamoDBAttribute(attributeName = "memberAge")
-    public int getMemberAge() {
-        return memberAge;
+    @DynamoDBAttribute(attributeName = "memberPassword")
+    public String getMemberPassword() {
+        return memberPassword;
     }
 
-    public void setMemberAge(int memberAge) {
-        this.memberAge = memberAge;
+    public void setMemberPassword(String memberPassword) {
+        this.memberPassword = memberPassword;
     }
 
     @DynamoDBAttribute(attributeName = "memberHasFamily")
-    public boolean isMemberHasFamily() {
+    public boolean getMemberHasFamily() {
         return memberHasFamily;
     }
 
@@ -65,16 +66,17 @@ public class Member {
         this.memberHasFamily = memberHasFamily;
     }
 
-    @DynamoDBTypeConverted(converter = BirthDateLocalDateTimeConverter.class)
+    @DynamoDBTypeConverted(converter = LocalDateConverter.class)
     @DynamoDBAttribute(attributeName = "memberBirthday")
-    public LocalDateTime getMemberBirthday() {
+    public LocalDate getMemberBirthday() {
         return memberBirthday;
     }
 
-    public void setMemberBirthday(LocalDateTime memberBirthday) {
+    public void setMemberBirthday(LocalDate memberBirthday) {
         this.memberBirthday = memberBirthday;
     }
 
+    @DynamoDBTypeConverted(converter = NotificationsListConverter.class)
     @DynamoDBAttribute(attributeName = "memberNotifications")
     public List<NotificationContent> getMemberNotifications() {
         return memberNotifications;

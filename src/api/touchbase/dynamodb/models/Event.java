@@ -7,7 +7,9 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @DynamoDBTable(tableName = "touchbase_events")
@@ -17,9 +19,9 @@ public class Event {
     private String eventOwnerId;
     private String description;
     private EventType eventType;
-    private LocalDateTime eventDate;
-    private LocalDateTime eventStartTime;
-    private LocalDateTime eventEndTime;
+    private LocalDate eventDate;
+    private LocalTime eventStartTime;
+    private LocalTime eventEndTime;
     private List<String> eventAttendingMemberIds;
 
     @DynamoDBHashKey(attributeName = "eventFamilyId")
@@ -68,29 +70,29 @@ public class Event {
     }
 
     @DynamoDBAttribute(attributeName = "eventDate")
-    public LocalDateTime getEventDate() {
+    public LocalDate getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(LocalDateTime eventDate) {
+    public void setEventDate(LocalDate eventDate) {
         this.eventDate = eventDate;
     }
 
     @DynamoDBAttribute(attributeName = "eventStartTime")
-    public LocalDateTime getEventStartTime() {
+    public LocalTime getEventStartTime() {
         return eventStartTime;
     }
 
-    public void setEventStartTime(LocalDateTime eventStartTime) {
+    public void setEventStartTime(LocalTime eventStartTime) {
         this.eventStartTime = eventStartTime;
     }
 
     @DynamoDBAttribute(attributeName = "eventEndTime")
-    public LocalDateTime getEventEndTime() {
+    public LocalTime getEventEndTime() {
         return eventEndTime;
     }
 
-    public void setEventEndTime(LocalDateTime eventEndTime) {
+    public void setEventEndTime(LocalTime eventEndTime) {
         this.eventEndTime = eventEndTime;
     }
 
