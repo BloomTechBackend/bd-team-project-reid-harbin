@@ -11,10 +11,10 @@ public class LocalDateConverter implements DynamoDBTypeConverter<String, LocalDa
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd yyyy");
 
     @Override
-    public String convert(LocalDate localDateTimeToConvert) {
+    public String convert(LocalDate localDateToConvert) {
         Logger log = LogManager.getLogger();
-        log.info("Converting LocalDate ", localDateTimeToConvert);
-        return localDateTimeToConvert.format(formatter);
+        log.info("Converting LocalDate ", localDateToConvert);
+        return localDateToConvert.format(formatter);
     }
 
     @Override

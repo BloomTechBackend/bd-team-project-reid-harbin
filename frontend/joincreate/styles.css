@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Courier New;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(
+        farthest-corner at 50% 150%,
+        #24209F,
+        #33ACFF
+    );
+    text-align: center;
+}
+
+.loading {
+    text-align: left;
+    display: none;
+}
+
+.container h1 {
+    padding: 0px 0 0;
+    font-size: 64px;
+}
+
+.form-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    left: 50%;
+    transform: translate(-50%,20%);
+    background: #fff;
+    padding: 0px 50px 25px;
+    text-align: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.form-box h2{
+    font-size: 48px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.form-box h2::after {
+    content: '';
+    width: 150px;
+    height: 4px;
+    border-radius: 5px;
+    background: #000000;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+
+.input-field {
+    background: #eaeaea;
+    margin: 15px 0;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline 0;
+    padding: 16px 5px;
+    height: 35px;
+}
+
+.button-field {
+    position: relative;
+    width: 50%;
+    display: contents;
+}
+
+.button-field button {
+    background: #33ACFF;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.create-family-inputs {
+}
+
+.join-family-inputs {
+}
+
+
+.create-family-name {
+
+}
+.create-family-password {
+
+}
+
+.join-family-name {
+
+}
+
+.join-family-password {
+
+}
+
+.join-family-id {
+
+}

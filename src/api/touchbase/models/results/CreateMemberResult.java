@@ -1,7 +1,6 @@
 package api.touchbase.models.results;
 
 import api.touchbase.models.MemberModel;
-import api.touchbase.models.requests.CreateMemberRequest;
 
 public class CreateMemberResult {
     private MemberModel member;

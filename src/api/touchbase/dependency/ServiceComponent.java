@@ -21,4 +21,8 @@ public interface ServiceComponent {
 
     CreateFamilyActivity provideCreateFamilyActivity();
 
+    JoinFamilyActivity provideJoinFamilyActivity();
+
+    CreateEventActivity provideCreateEventActivity();
+
 }

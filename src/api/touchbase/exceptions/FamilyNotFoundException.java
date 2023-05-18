@@ -10,7 +10,6 @@ public class FamilyNotFoundException extends NotFoundException {
     }
 
     public FamilyNotFoundException(Throwable cause) {
-
         super(cause);
     }
 

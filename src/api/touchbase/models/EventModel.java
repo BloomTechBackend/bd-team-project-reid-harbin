@@ -74,8 +74,8 @@ public class EventModel {
             this.eventTimeRange = eventTimeRange;
             return this;
         }
-        public Builder withEventFamilyMemberNames(List<String> eventFamilyMemberNames) {
-            this.eventFamilyMemberIds = eventFamilyMemberNames;
+        public Builder withEventFamilyMemberIds(List<String> eventFamilyMemberIds) {
+            this.eventFamilyMemberIds = eventFamilyMemberIds;
             return this;
         }
 

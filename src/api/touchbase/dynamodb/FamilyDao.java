@@ -15,6 +15,7 @@ public class FamilyDao {
     }
 
     public Family getFamily(String familyId) {
+
         Family family = mapper.load(Family.class, familyId);
 
         if (family == null) {

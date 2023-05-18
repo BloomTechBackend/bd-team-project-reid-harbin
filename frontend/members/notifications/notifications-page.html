@@ -1,0 +1,26 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport content="width=device-width, initial-scale="1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="notifications-page.js" defer></script>
+  <title>TouchBase</title>
+</head>
+<body>
+<div class="container">
+  <div class="loading">
+    <h1>Loading...</h1>
+  </div>
+  <div class="tool-bar">
+    <button type="button" id="notifications-button" onclick="loadNotifications()"><b>Notifications</b></button>
+    <button type="button" id="events-button" onclick="loadEvents()"><b>Events</b></button>
+    <button type="button" id="family-button" onclick="loadFamily()"><b>Family</b></button>
+    <button type="button" id="account-button" onclick="loadAccount()"><b>Account</b></button>
+  </div>
+  <div class="notifications-page">
+    <div class="notifications">
+    </div>
+  </div>
+</div>
+</body>
+</html>

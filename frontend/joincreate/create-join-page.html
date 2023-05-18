@@ -1,0 +1,68 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport content="width=device-width, initial-scale="1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="create-join-page.js" defer></script>
+  <title>TouchBase</title>
+</head>
+<body>
+<div class="container">
+  <div class="create-family-inputs">
+    <div class="form-box">
+      <h2><b>Create Family</b></h2>
+      <form id="create-family-form">
+        <div class="input-group">
+          <div class="input-field">
+            <img src = 'familyresources/family-icon.png' width = '24px' alt= 'profile icon'>
+            <input name="familyName" type="text" id="create-family-name" placeholder="family name" required>
+          </div>
+          <div class="input-field">
+            <img src = 'familyresources/family-password-key.png' width = '24px' alt= 'profile icon'>
+            <input name="familyPassword" type="text" id="create-family-password" placeholder="family password" required>
+          </div>
+          <div class="input-field">
+            <img src = 'familyresources/family-id.png' width = '24px' alt= 'profile icon'>
+            <input name="create-member-id" type="text" id="create-member-id" placeholder="member-id" required>
+          </div>
+        </div>
+        <div class="button-field">
+          <button type="submit" id="create-family-button" form="create-family-form">CREATE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="join-family-inputs">
+    <div class="form-box">
+      <h2><b>Join Family</b></h2>
+      <form id="join-family-form">
+        <div class="input-group">
+          <div class="input-field">
+            <img src = 'familyresources/family-icon.png' width = '24px' alt= 'profile icon'>
+            <input type="text" id="join-family-name" placeholder="family name" required>
+          </div>
+          <div class="input-field">
+            <img src = 'familyresources/family-password-key.png' width = '24px' alt= 'profile icon'>
+            <input type="text" id="join-family-password" placeholder="family password" required>
+          </div>
+          <div class="input-field">
+            <img src = 'familyresources/family-id.png' width = '24px' alt= 'profile icon'>
+            <input type="text" id="join-family-id" placeholder="family-id" required>
+          </div>
+          <div class="input-field">
+            <img src = 'familyresources/family-id.png' width = '24px' alt= 'profile icon'>
+            <input type="text" id="join-member-id" placeholder="member-id" required>
+          </div>
+        </div>
+        <div class="button-field">
+          <button type="submit" id="join-family-button" form="join-family-form">JOIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="loading">
+    <h1>Loading...</h1>
+  </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,40 @@
+[{"notificationHeadline":"TEST1!",
+  "notificationDescription":"Welcome to TouchBase! No matter how far from home, you\u0027ll always be able to touchbase!",
+  "notificationSenderName":"TouchBase",
+  "notificationDate":"05 16 2023"},
+  {"notificationHeadline":"TEST2!",
+    "notificationDescription":"Welcome to TouchBase! No matter how far from home, you\u0027ll always be able to touchbase!",
+    "notificationSenderName":"TouchBase",
+    "notificationDate":"05 16 2023"},
+  {"notificationHeadline":"TEST3",
+    "notificationDescription":"Welcome to TouchBase! No matter how far from home, you\u0027ll always be able to touchbase!",
+    "notificationSenderName":"TouchBase",
+    "notificationDate":"05 16 2023"},
+  {"notificationHeadline":"TEST4",
+    "notificationDescription":"Welcome to TouchBase! No matter how far from home, you\u0027ll always be able to touchbase!",
+    "notificationSenderName":"TouchBase",
+    "notificationDate":"05 16 2023"},
+  {"notificationHeadline":"TEST5",
+    "notificationDescription":"Welcome to TouchBase! No matter how far from home, you\u0027ll always be able to touchbase!",
+    "notificationSenderName":"TouchBase",
+    "notificationDate":"05 16 2023"},
+  {"notificationHeadline":"TEST5",
+    "notificationDescription":"Welcome to TouchBase! No matter how far from home, you\u0027ll always be able to touchbase!",
+    "notificationSenderName":"TouchBase",
+    "notificationDate":"05 16 2023"}],
+
+
 {
-  "familyCreatorId": "wTJMYVCS",
-  "familyName": "The Fuertes",
-  "familyPassword": "PasswordFamily123"
+  "familyCreatorId":$input.json('$.familyCreatorId'),
+  "familyName":$input.json('$.familyName'),
+  "familyPassword":$input.json('$.familyPassword')
+
+}
+
+{
+  "memberId":$input.json('$.memberId'),
+  "familyId":$input.json('$.familyId'),
+  "familyName":$input.json('$.familyName'),
+  "familyPassword":$input.json('$.familyPassword')
+
 }

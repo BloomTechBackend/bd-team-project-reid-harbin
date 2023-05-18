@@ -9,6 +9,7 @@ public class MemberModel {
     private String memberName;
     private boolean memberHasFamily;
     private String memberBirthday;
+    private String memberPassword;
     private List<NotificationContent> notifications;
 
     public MemberModel() {
@@ -59,6 +60,7 @@ public class MemberModel {
     public static final class Builder {
         private String memberId;
         private String memberName;
+        private String memberPassword;
         private boolean memberHasFamily;
         private String memberBirthday;
         private List<NotificationContent> notifications;
@@ -70,6 +72,11 @@ public class MemberModel {
 
         public Builder withMemberName(String memberNameToUse) {
             this.memberName = memberNameToUse;
+            return this;
+        }
+
+        public Builder withMemberPassword(String memberPasswordToUse) {
+            this.memberPassword = memberPasswordToUse;
             return this;
         }
 

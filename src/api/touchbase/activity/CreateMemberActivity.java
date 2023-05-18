@@ -9,6 +9,7 @@ import api.touchbase.models.requests.CreateMemberRequest;
 import api.touchbase.models.results.CreateMemberResult;
 import api.touchbase.utils.IdGenerator;
 import api.touchbase.utils.InputStringValidator;
+import api.touchbase.utils.NotificationCreator;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
@@ -63,16 +64,10 @@ public class CreateMemberActivity implements RequestHandler<CreateMemberRequest,
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd yyyy");
 
-        String now = LocalDate.now().format(formatter);
-
-        NotificationContent welcomeNotification = new NotificationContent();
-        welcomeNotification.setNotificationDate(now);
-        welcomeNotification.setNotificationHeadline("WELCOME!");
-        welcomeNotification.setNotificationDescription("Welcome to TouchBase! No matter how far from home, you'll always be able to touchbase!");
-        welcomeNotification.setNotificationSenderName("TouchBase");
+        NotificationCreator notificationCreator = new NotificationCreator();
 
         List<NotificationContent> notifications = new ArrayList<>();
-        notifications.add(welcomeNotification);
+        notifications.add(notificationCreator.newMemberNotification());
 
         Member memberToCreate = new Member();
 

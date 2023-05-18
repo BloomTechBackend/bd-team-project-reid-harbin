@@ -14,16 +14,16 @@ import java.util.List;
 public class LocalTimeConverter implements DynamoDBTypeConverter<String, LocalTime> {
     private final Logger log = LogManager.getLogger();
     private Gson GSON = new Gson();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h m a");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm a");
 
     @Override
     public String convert(LocalTime localTimeToBeConverted) {
-        return GSON.toJson(localTimeToBeConverted);
+        return localTimeToBeConverted.format(formatter);
+
     }
 
     @Override
     public LocalTime unconvert(String dynamoDbRepresentation) {
-        // need to provide the type parameter of the list to convert correctly
-        return GSON.fromJson(dynamoDbRepresentation, new TypeToken<LocalTime>() { } .getType());
+        return LocalTime.parse(dynamoDbRepresentation, formatter);
     }
 }

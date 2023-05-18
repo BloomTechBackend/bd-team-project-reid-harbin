@@ -2,27 +2,26 @@ package api.touchbase.models.results;
 
 import api.touchbase.models.FamilyModel;
 
-public class CreateFamilyResult {
-    private FamilyModel family;
+public class JoinFamilyResult {
+    private FamilyModel familyModel;
 
-
-    public CreateFamilyResult() {
+    public JoinFamilyResult() {
     }
 
-    public CreateFamilyResult(FamilyModel familyModel) {
-        this.family = familyModel;
+    public JoinFamilyResult(FamilyModel familyModel) {
+        this.familyModel = familyModel;
     }
 
-    public CreateFamilyResult(Builder builder) {
-        this.family = builder.familyModel;
+    public JoinFamilyResult(Builder builder) {
+        this.familyModel = builder.familyModel;
     }
 
     public FamilyModel getFamilyModel() {
-        return family;
+        return familyModel;
     }
 
     public void setFamilyModel(FamilyModel familyModel) {
-        this.family = familyModel;
+        this.familyModel = familyModel;
     }
 
     public static Builder builder() {
@@ -37,8 +36,8 @@ public class CreateFamilyResult {
             return this;
         }
 
-        public CreateFamilyResult build() {
-            return new CreateFamilyResult(this);
+        public JoinFamilyResult build() {
+            return new JoinFamilyResult(this);
         }
     }
 }
