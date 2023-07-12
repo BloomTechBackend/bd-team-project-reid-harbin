@@ -38,3 +38,23 @@
   "familyPassword":$input.json('$.familyPassword')
 
 }
+
+{
+"familyId": "S58976or",
+"description": "This is the description for the event",
+"eventDate": "05 18 2023",
+"eventEndTime": "10:30 AM",
+"eventOwnerId": "6W2ur7wj",
+"eventStartTime": "9:30 AM",
+"eventType": "Dinner"
+}
+
+{
+"familyId": $input.json('$.familyId'),
+"description": $input.json('$.description'),
+"eventDate": $input.json('$.eventDate'),
+"eventEndTime": $input.json('$.eventEndTime'),
+"eventOwnerId": $input.json('$.eventOwnerId'),
+"eventStartTime": $input.json('$.eventStartTime'),
+"eventType": $input.json('$.eventType'),
+}

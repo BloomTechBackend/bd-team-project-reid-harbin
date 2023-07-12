@@ -1,6 +1,6 @@
 # [Your Name] - [Team name] Accomplishment Tracking
 
-Each team member should have their own version of this document.
+Each team memberId should have their own version of this document.
 
 ## Background
 

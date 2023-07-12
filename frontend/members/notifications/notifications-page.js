@@ -1,7 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
-const memberId = urlParams.get('memberId');
+const memberId = "5763bd7a-7c6e-4370-9d33-96e5a761d756";
 
 let hasFamily;
+let familyId;
 
 let headers = { authorization: {
         'x-api-key': 'ROhDefLTvE9WkWAYyBULD86cNpB2HWKL4fTJL3WX'
@@ -19,7 +20,8 @@ window.onload = async function(evt) {
     toolBarDiv.style.display = "none";
     notificationsPageDiv.style.display = "none";
 
-    axios.get("https://49042ah3j2.execute-api.us-west-2.amazonaws.com/beta/" + memberId, headers).then((res) => {
+    axios.get("https://49042ah3j2.execute-api.us-west-2.amazonaws.com/beta/member/" + memberId +
+                              "/notifications", headers).then((res) => {
         console.log(res.data.member);
         if (res.data.errorMessage != null) {
             alert(res.data.errorMessage);
@@ -27,8 +29,7 @@ window.onload = async function(evt) {
         } else {
            console.log(res.data);
 
-            let memberNotifications = res.data.member.notifications;
-            hasFamily = res.data.member.memberHasFamily;
+            let memberNotifications = res.data.notifications;
 
             const notificationsDiv = document.querySelector(".notifications");
 
@@ -64,10 +65,10 @@ window.onload = async function(evt) {
 }
 
 function removeButton(index) {
-        const h1 = document.querySelector("#header" + index);
-        const button = document.querySelector("#button" + index);
-        h1.remove();
-        button.remove();
+    const h1 = document.querySelector("#header" + index);
+    const button = document.querySelector("#button" + index);
+    h1.remove();
+    button.remove();
     axios.put("https://49042ah3j2.execute-api.us-west-2.amazonaws.com/beta/" +
     memberId + "/notifications?notificationIndex=" + index, headers).then((res) => {
         console.log(res);
@@ -76,23 +77,29 @@ function removeButton(index) {
 }
 
 function loadNotifications() {
-    location.reload();
+    location.href = "http://touchbase-api.s3-website-us-west-2.amazonaws.com/members/notifications" +
+                        "/notifications-page.html?memberId=" + memberId;
 }
 
 function loadEvents() {
-
+    if (hasFamily) {
+        location.href = "http://touchbase-api.s3.us-west-2.amazonaws.com/members/events/events-page.html?memberId="+
+            memberId+"&familyId="+familyId;
+    } else {
+        alert("You need to join or create a family before you can access events");
+    }
 }
 
 function loadFamily() {
-    if (!hasFamily) {
-        location.href = "http://localhost:63342/touchbase-api/frontend/members/family/create-join-page.html?memberId=" + memberId;
+    if (hasFamily) {
+        location.href = "http://touchbase-api.s3-website-us-west-2.amazonaws.com/members/family/family-page.html?"
+                         +"memberId="+memberId+"&familyId="+familyId;
     } else {
-        location.href = "http://localhost:63342/touchbase-api/frontend/members/family/family-page.html";
+        location.href = "https://touchbase-api.s3.us-west-2.amazonaws.com/members/family/create-join-page.html";
     }
 }
 
 function loadAccount() {
-    //"/members/member-page.html?memberId="
-    location.href = "http://localhost:63342/touchbase-api/frontend/members/member-page.html?memberId=" + memberId;
+    location.href = "https://touchbase-api.s3.us-west-2.amazonaws.com/members/member-page.html?memberId="+memberId;
 }
 

@@ -1,6 +1,6 @@
 package api.touchbase.converters;
 
-import api.touchbase.NotificationContent;
+import api.touchbase.dynamodb.models.Notification;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -16,7 +16,7 @@ public class NotificationsListConverter implements DynamoDBTypeConverter<String,
     }
 
     @Override
-    public List<NotificationContent> unconvert(String dynamoDbRepresentation) {
-        return GSON.fromJson(dynamoDbRepresentation, new TypeToken<List<NotificationContent>>(){ }.getType());
+    public List<Notification> unconvert(String dynamoDbRepresentation) {
+        return GSON.fromJson(dynamoDbRepresentation, new TypeToken<List<Notification>>(){ }.getType());
     }
 }

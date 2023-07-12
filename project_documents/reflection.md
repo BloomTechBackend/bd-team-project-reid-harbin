@@ -1,6 +1,6 @@
 # [Team name] Reflection
 
-## Instructions
+## Instructins
 
 1. *Create a new folder within this current folder, and name the new folder
    after your team name*

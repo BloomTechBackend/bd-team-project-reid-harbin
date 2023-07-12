@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const memberId = urlParams.get('memberId');
 
+let familyId;
 let hasFamily;
 
 let headers = { authorization: {
@@ -35,18 +36,17 @@ window.onload = async function(evt) {
         let unread = res.data.member.notifications.length;
         let id = res.data.member.memberId;
         hasFamily = res.data.member.memberHasFamily;
+        familyId = res.data.member.familyId;
 
         const memberName = document.querySelector("#p-name");
         const memberBirthday = document.querySelector("#p-birthday");
         const memberPassword = document.querySelector("#p-password");
         const numUnread = document.querySelector("#p-unread");
-        const memberId = document.querySelector("#p-id");
 
         memberName.innerText = name;
         memberBirthday.innerText = birthday;
         memberPassword.innerText = password;
         numUnread.innerText = unread;
-        memberId.innerText = id;
 
         loadingDiv.style.display = "none";
         toolBarDiv.style.display = "block";
@@ -57,22 +57,29 @@ window.onload = async function(evt) {
 }
 
 function loadNotifications() {
-    location.href = "http://localhost:63342/touchbase-api/frontend/members/notifications/notifications-page.html?memberId=" + memberId;
+    location.href = "http://touchbase-api.s3-website-us-west-2.amazonaws.com/members/notifications" +
+                        "/notifications-page.html?memberId=" + memberId;
 }
 
 function loadEvents() {
-
+    if (hasFamily) {
+        location.href = "https://touchbase-api.s3.us-west-2.amazonaws.com/members/events/events-page.html?memberId="+
+            memberId+"&familyId="+familyId;
+    } else {
+        alert("You need to join or create a family before you can access events");
+    }
 }
 
 function loadFamily() {
     if (hasFamily) {
-        location.href = "http://localhost:63342/touchbase-api/frontend/members/family/family-page.html?";
+        location.href = "http://touchbase-api.s3-website-us-west-2.amazonaws.com/members/family/family-page.html?"
+                         +"memberId="+memberId+"&familyId="+familyId;
     } else {
-        location.href = "http://localhost:63342/touchbase-api/frontend/joincreate/create-join-page.html";
+        location.href = "https://touchbase-api.s3.us-west-2.amazonaws.com/members/family/create-join-page.html";
     }
 }
 
 function loadAccount() {
-    location.reload();
+    location.href = "https://touchbase-api.s3.us-west-2.amazonaws.com/members/member-page.html?memberId="+memberId;
 }
 

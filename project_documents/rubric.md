@@ -144,10 +144,10 @@ DynamoDB's GSI.** List one of your use cases that uses `query()` on a GSI.
 
 ## Soft(er) Outcomes
 
-**Learn a new technology.** For each team member, list something new that that
-team member learned:
+**Learn a new technology.** For each team memberId, list something new that that
+team memberId learned:
 
-|Team Member |Something new the team member learned |   
+|Team Member |Something new the team memberId learned |   
 |---   |---                                   |
 |      |                                      |   
 |      |                                      |     

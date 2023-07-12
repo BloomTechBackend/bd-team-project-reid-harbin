@@ -1,38 +1,22 @@
 package api.touchbase.dynamodb.models;
 
-
-import api.touchbase.EventType;
-import api.touchbase.converters.LocalDateConverter;
-import api.touchbase.converters.LocalTimeConverter;
-import api.touchbase.converters.StringListConverter;
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
+import java.util.Set;
 
-@DynamoDBTable(tableName = "touchbase_events")
 public class Event {
     private String eventId;
-    private String eventFamilyId;
     private String eventOwnerId;
-    private String description;
+    private String eventDescription;
     private String eventType;
+    private String eventStartMeridian;
+    private String eventEndMeridian;
     private LocalDate eventDate;
     private LocalTime eventStartTime;
     private LocalTime eventEndTime;
-    private List<String> eventAttendingMemberIds;
+    private Set<String> eventAttendingMemberNames;
 
-    @DynamoDBHashKey(attributeName = "familyId")
-    public String getEventFamilyId() {
-        return eventFamilyId;
-    }
 
-    public void setEventFamilyId(String eventFamilyId) {
-        this.eventFamilyId = eventFamilyId;
-    }
-
-    @DynamoDBRangeKey(attributeName = "eventId")
     public String getEventId() {
         return eventId;
     }
@@ -41,7 +25,6 @@ public class Event {
         this.eventId = eventId;
     }
 
-    @DynamoDBAttribute(attributeName = "eventOwnerId")
     public String getEventOwnerId() {
         return eventOwnerId;
     }
@@ -50,16 +33,14 @@ public class Event {
         this.eventOwnerId = eventOwnerId;
     }
 
-    @DynamoDBAttribute(attributeName = "description")
-    public String getDescription() {
-        return description;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 
-    @DynamoDBAttribute(attributeName = "eventType")
     public String getEventType() {
         return eventType;
     }
@@ -68,8 +49,14 @@ public class Event {
         this.eventType = eventType;
     }
 
-    @DynamoDBTypeConverted(converter = LocalDateConverter.class)
-    @DynamoDBAttribute(attributeName = "eventDate")
+    public String getEventStartMeridian() {
+        return eventStartMeridian;
+    }
+
+    public void setEventStartMeridian(String eventStartMeridian) {
+        this.eventStartMeridian = eventStartMeridian;
+    }
+
     public LocalDate getEventDate() {
         return eventDate;
     }
@@ -78,8 +65,6 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    @DynamoDBTypeConverted(converter = LocalTimeConverter.class)
-    @DynamoDBAttribute(attributeName = "eventStartTime")
     public LocalTime getEventStartTime() {
         return eventStartTime;
     }
@@ -88,8 +73,6 @@ public class Event {
         this.eventStartTime = eventStartTime;
     }
 
-    @DynamoDBTypeConverted(converter = LocalTimeConverter.class)
-    @DynamoDBAttribute(attributeName = "eventEndTime")
     public LocalTime getEventEndTime() {
         return eventEndTime;
     }
@@ -98,28 +81,33 @@ public class Event {
         this.eventEndTime = eventEndTime;
     }
 
-    @DynamoDBTypeConverted(converter = StringListConverter.class)
-    @DynamoDBAttribute(attributeName = "eventAttendingMemberIds")
-    public List<String> getEventAttendingMemberIds() {
-        return eventAttendingMemberIds;
+    public Set<String> getEventAttendingMemberNames() {
+        return eventAttendingMemberNames;
     }
 
-    public void setEventAttendingMemberIds(List<String> eventAttendingMemberIds) {
-        this.eventAttendingMemberIds = eventAttendingMemberIds;
+    public void setEventAttendingMemberNames(Set<String> eventAttendingMemberNames) {
+        this.eventAttendingMemberNames = eventAttendingMemberNames;
+    }
+
+    public String getEventEndMeridian() {
+        return eventEndMeridian;
+    }
+
+    public void setEventEndMeridian(String eventEndMeridian) {
+        this.eventEndMeridian = eventEndMeridian;
     }
 
     @Override
     public String toString() {
         return "Event{" +
                 "eventId='" + eventId + '\'' +
-                ", eventFamilyId='" + eventFamilyId + '\'' +
                 ", eventOwnerId='" + eventOwnerId + '\'' +
-                ", description='" + description + '\'' +
+                ", description='" + eventDescription + '\'' +
                 ", eventType='" + eventType + '\'' +
                 ", eventDate=" + eventDate +
                 ", eventStartTime=" + eventStartTime +
                 ", eventEndTime=" + eventEndTime +
-                ", eventAttendingMemberIds=" + eventAttendingMemberIds +
+                ", eventAttendingMemberIds=" + eventAttendingMemberNames +
                 '}';
     }
 }

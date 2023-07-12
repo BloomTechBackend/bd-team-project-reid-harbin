@@ -45,15 +45,15 @@ These resources may be helpful as you fill out your team charter. They are optio
 * **How can we take risks on this team without feeling insecure or
   embarrassed?**
     *E.g., Be open to opinions that differ from your own, actively ask for
-    opinions from each member of the team, do not interrupt each other, don’t
+    opinions from each memberId of the team, do not interrupt each other, don’t
     place blame, all suggestions or questions are encouraged, listened to,
     considered equally, and never judged*
 
-* **How do we address situations where any team member feels unsafe?**
+* **How do we address situations where any team memberId feels unsafe?**
     *E.g., communicate when there is a misunderstanding, don’t move forward
     until the situation is resolved, directly address and resolve negativity,
     give and receive feedback with a positive, strength-building mindset, if
-    necessary, escalate to a BloomTech staff member*  
+    necessary, escalate to a BloomTech staff memberId*  
 
 ### Dependability, Structure, Clarity
 
@@ -103,22 +103,22 @@ These resources may be helpful as you fill out your team charter. They are optio
 
 ## Meaning & Impact
 
-**What is personally important for each team member about joining BloomTech? About
+**What is personally important for each team memberId about joining BloomTech? About
 becoming an software engineer?**
 
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
+* *Team memberId name*:
+* *Team memberId name*:
+* *Team memberId name*:
+* *Team memberId name*:
 
-**What each team member wants to achieve: e.g. improve analytical skills, learn
+**What each team memberId wants to achieve: e.g. improve analytical skills, learn
 project management skills, develop public speaking skills, speak up more, speak
 up less, etc.**
 
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
+* *Team memberId name*:
+* *Team memberId name*:
+* *Team memberId name*:
+* *Team memberId name*:
 
 ## Team Member Roles and Responsibilities
 
@@ -138,7 +138,7 @@ rotating or permanent roles as you go.*
 
 **I agree to the terms and conditions of these team agreements:**
 
-* Team member (a) Name & Date:
-* Team member (b) Name & Date:
-* Team member (c) Name & Date:
-* Team member (d) Name & Date:
+* Team memberId (a) Name & Date:
+* Team memberId (b) Name & Date:
+* Team memberId (c) Name & Date:
+* Team memberId (d) Name & Date:

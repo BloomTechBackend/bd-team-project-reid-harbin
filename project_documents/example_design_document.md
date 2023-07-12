@@ -1,3 +1,24 @@
+
+
+*Describe the behavior of the first endpoint you will build into your service
+API. This should include what data it requires, what data it returns, and how it
+will handle any known failure cases. You should also include a sequence diagram
+showing how a user interaction goes from user to website to service to database,
+and back. This first endpoint can serve as a template for subsequent endpoints.
+(If there is a significant difference on a subsequent endpoint, review that with
+your team before building it!)*
+
+*(You should have a separate section for each of the endpoints you are expecting
+to build...)*
+
+*(repeat, but you can use shorthand here, indicating what is different, likely
+primarily the data in/out and error conditions. If the sequence diagram is
+nearly identical, you can say in a few words how it is the same/different from
+the first endpoint)*
+
+
+
+
 # Example Project Design Doc - Amazon Music Playlist Service Design
 
 Please use the following as a reference while completing your design. It has
@@ -51,6 +72,7 @@ U6. As a customer, I want to retrieve all songs in my playlist.
 U7. As a customer, I want to retrieve all songs in my playlist in a provided
 order (default order, reverse order, shuffled).
 
+
 ## 4. Project Scope
 
 ### 4.1. In Scope
@@ -62,7 +84,7 @@ order (default order, reverse order, shuffled).
 
 * Updating playlist tags
 * Integration with Amazon Music Client
-* When adding a song on the website, having a drop down or autocomplete with the
+* When adding a song on the website, having a drop-down or autocomplete with the
   different songs available.
 * The ability to play music from the website
 * The ability to search for existing songs either through the website or the API

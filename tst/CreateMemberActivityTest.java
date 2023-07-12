@@ -1,10 +1,10 @@
-import api.touchbase.activity.CreateMemberActivity;
+import api.touchbase.activity.member.CreateMemberActivity;
 import api.touchbase.converters.LocalDateConverter;
 import api.touchbase.dynamodb.MemberDao;
 import api.touchbase.dynamodb.models.Member;
-import api.touchbase.models.MemberModel;
-import api.touchbase.models.requests.CreateMemberRequest;
-import api.touchbase.models.results.CreateMemberResult;
+import api.touchbase.models.objects.MemberModel;
+import api.touchbase.models.requests.member.CreateMemberRequest;
+import api.touchbase.models.results.member.CreateMemberResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -33,7 +33,6 @@ public class CreateMemberActivityTest {
 
         String expectId = "AbcD1234";
         String expectedPassword = "abcjd7da";
-        String expectedBirthday = "01 21 2000";
         String expectedName = "John Doe";
 
 
@@ -41,14 +40,12 @@ public class CreateMemberActivityTest {
         Member member = new Member();
         member.setMemberName(expectedName);
         member.setMemberId(expectId);
-        member.setMemberBirthday(localDateConverter.unconvert(expectedBirthday));
 
         when(memberDao.saveMember(member)).thenReturn(member);
 
         CreateMemberRequest request = CreateMemberRequest.builder()
                 .withMemberPassword(expectedPassword)
                 .withName(expectedName)
-                .withBirthday(expectedBirthday)
                 .build();
 
         CreateMemberResult result = createMemberActivity.handleRequest(request, null);
@@ -56,7 +53,6 @@ public class CreateMemberActivityTest {
 
 
         assertEquals(expectedName, actualMember.getMemberName());
-        assertEquals(expectedBirthday, actualMember.getMemberBirthday());
         assertEquals("TouchBase", actualMember.getNotifications().get(0).getNotificationSenderName());
     }
 

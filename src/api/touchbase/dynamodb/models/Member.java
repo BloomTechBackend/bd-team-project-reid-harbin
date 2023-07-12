@@ -1,14 +1,8 @@
 package api.touchbase.dynamodb.models;
 
-import api.touchbase.NotificationContent;
-import api.touchbase.converters.LocalDateConverter;
 import api.touchbase.converters.NotificationsListConverter;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @DynamoDBTable(tableName = "touchbase_members")
@@ -17,9 +11,8 @@ public class Member {
     private String memberFamilyId;
     private String memberName;
     private String memberPassword;
-    private boolean memberHasFamily;
-    private LocalDate memberBirthday;
-    private List<NotificationContent> memberNotifications;
+    private String memberPasswordSalt;
+    private List<Notification> memberNotifications;
 
     @DynamoDBHashKey(attributeName = "memberId")
     public String getMemberId() {
@@ -39,7 +32,7 @@ public class Member {
         this.memberFamilyId = memberFamilyId;
     }
 
-    @DynamoDBAttribute(attributeName = "memberName")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = "MemberNameIndex", attributeName = "memberName")
     public String getMemberName() {
         return memberName;
     }
@@ -57,32 +50,23 @@ public class Member {
         this.memberPassword = memberPassword;
     }
 
-    @DynamoDBAttribute(attributeName = "memberHasFamily")
-    public boolean getMemberHasFamily() {
-        return memberHasFamily;
+    @DynamoDBAttribute(attributeName = "memberPasswordSalt")
+    public String getMemberPasswordSalt() {
+        return memberPasswordSalt;
     }
 
-    public void setMemberHasFamily(boolean memberHasFamily) {
-        this.memberHasFamily = memberHasFamily;
+    public void setMemberPasswordSalt(String memberPasswordSalt) {
+        this.memberPasswordSalt = memberPasswordSalt;
     }
 
-    @DynamoDBTypeConverted(converter = LocalDateConverter.class)
-    @DynamoDBAttribute(attributeName = "memberBirthday")
-    public LocalDate getMemberBirthday() {
-        return memberBirthday;
-    }
-
-    public void setMemberBirthday(LocalDate memberBirthday) {
-        this.memberBirthday = memberBirthday;
-    }
 
     @DynamoDBTypeConverted(converter = NotificationsListConverter.class)
     @DynamoDBAttribute(attributeName = "memberNotifications")
-    public List<NotificationContent> getMemberNotifications() {
+    public List<Notification> getMemberNotifications() {
         return memberNotifications;
     }
 
-    public void setMemberNotifications(List<NotificationContent> memberNotifications) {
+    public void setMemberNotifications(List<Notification> memberNotifications) {
         this.memberNotifications = memberNotifications;
     }
 }

@@ -1,0 +1,62 @@
+@startuml
+
+class Family {
+     - @DynamoDBHashKey familyId : String
+     - @DynamoDBIndexHashKey familyName : String
+     - @DynamoDBIndexRangeKey familyPassword : String
+     - familyEvents : List<Event>
+     - Set<String> : familyMemberIds
+}
+
+class Member {
+    - memberId : String
+    - memberFamilyId : String
+    - @DynamoDBIndexHashKey memberName : String
+    - memberPassword : String
+    - memberPasswordSalt : String
+    - memberNotifications : List<Notification>
+
+}
+
+class Event {
+    - eventId : String
+    - eventOwnerId : String
+    - eventDescription : String
+    - eventType : String
+    - eventStartMeridian : String
+    - eventEndMeridian : String
+    - eventDate : LocalDate
+    - eventStartTime : LocalTime
+    - eventEndTime : LocalTime
+    - eventAttendingMemberIds
+}
+
+class Notification {
+    - notificationHeadline : String
+    - notificationDescription : String
+    - notificationSenderName : String
+    - notificationDate : String
+}
+
+class FamilyDao {
+    - mapper : DynamoDBMapper
+
+    + getFamily(String): Family
+    + save(Family) : Family
+    + queryFamilyLogins(String, String) : PaginatedQueryList<Family>
+
+}
+
+class MemberDao {
+    - mapper : DynamoDBMapper
+
+    + getMember(String) : Member
+    + save(Member) : Member
+    + queryMemberLogins(String, String) : PaginatedQueryList<Member>
+}
+
+class
+
+
+
+@enduml

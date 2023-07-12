@@ -14,7 +14,7 @@ import java.util.List;
 public class LocalTimeConverter implements DynamoDBTypeConverter<String, LocalTime> {
     private final Logger log = LogManager.getLogger();
     private Gson GSON = new Gson();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm a");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
 
     @Override
     public String convert(LocalTime localTimeToBeConverted) {

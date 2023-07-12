@@ -8,8 +8,8 @@ import org.apache.logging.log4j.Logger;
 import java.time.format.DateTimeFormatter;
 
 public class LocalDateConverter implements DynamoDBTypeConverter<String, LocalDate> {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd yyyy");
 
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     @Override
     public String convert(LocalDate localDateToConvert) {
         Logger log = LogManager.getLogger();

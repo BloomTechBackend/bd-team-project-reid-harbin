@@ -13,24 +13,24 @@
           <p><i><b>"No matter where you are, you will always be able to TouchBase"</b></i></p>
           <div class="form-box">
               <h2><b>Sign Up</b></h2>
-              <form id="create-member-form">
+              <form id="create-memberId-form">
                   <div class="input-group">
                       <div class="input-field">
                           <img src = 'resources/icons8-user-64.png' width = '24px' alt= 'profile icon'>
-                          <input name="name" type="text" id="member-name" placeholder="name" required>
+                          <input name="name" type="text" id="memberId-name" placeholder="username" required>
                       </div>
                       <div class="input-field">
                           <img src = 'resources/password-key.png' width = '24px' alt= 'profile icon'>
-                          <input name="password" type="text" id="member-password" placeholder="password" required>
+                          <input name="password" type="text" id="memberId-password" placeholder="password" required>
                       </div>
 
                       <div class="input-field">
                           <img src = 'resources/icons8-birthday-24.png' width = '24px' alt= 'profile icon'>
-                          <input name="birthday" type="text" id="member-birthday" placeholder="mm dd yyyy" required>
+                          <input name="birthday" type="text" id="memberId-birthday" placeholder="mm dd yyyy" required>
                       </div>
                   </div>
                   <div class="button-field">
-                      <button type="submit" id="sign-up-button" form="create-member-form">Sign Up</button>
+                      <button type="submit" id="sign-up-button" form="create-memberId-form">Sign Up</button>
                       <button type="button" id="go-to-button" onclick="loadSignIn()">Sign In -></button>
                   </div>
               </form>
@@ -45,8 +45,12 @@
               <form id="sign-in-form">
                   <div class="input-group">
                       <div class="input-field">
-                          <img src = 'resources/member-id.png' width = '24px' alt= 'profile icon'>
-                          <input name="member-id" type="text" id="member-id" placeholder="member-id" required>
+                          <img src = 'resources/icons8-user-64.png' width = '24px' alt= 'profile icon'>
+                          <input type="text" id="sign-in-name" placeholder="username" required>
+                      </div>
+                      <div class="input-field">
+                          <img src = 'resources/password-key.png' width = '24px' alt= 'profile icon'>
+                          <input type="text" id="sign-in-password" placeholder="password" required>
                       </div>
                   </div>
                   <div class="button-field">

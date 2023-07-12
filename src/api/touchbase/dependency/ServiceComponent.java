@@ -1,7 +1,8 @@
 package api.touchbase.dependency;
 
 
-import api.touchbase.activity.*;
+import api.touchbase.activity.family.*;
+import api.touchbase.activity.member.*;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -13,7 +14,7 @@ public interface ServiceComponent {
 
     GetMemberNotificationsActivity provideGetMemberNotificationsActivity();
 
-    GetMemberDetailsActivity provideGetMemberDetailsActivity();
+    GetMemberActivity provideGetMemberDetailsActivity();
 
     DeleteMemberNotificationActivity provideDeleteMemberNotificationActivity();
 
@@ -23,6 +24,13 @@ public interface ServiceComponent {
 
     JoinFamilyActivity provideJoinFamilyActivity();
 
+    GetFamilyActivity provideGetFamilyActivity();
+
     CreateEventActivity provideCreateEventActivity();
 
+    GetEventsActivity provideGetEventsActivity();
+
+    JoinEventActivity provideJoinEventActivity();
+
+    MemberLoginActivity provideMemberLoginActivity();
 }

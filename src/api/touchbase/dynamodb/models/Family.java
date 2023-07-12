@@ -1,20 +1,20 @@
 package api.touchbase.dynamodb.models;
 
-import api.touchbase.converters.NotificationsListConverter;
-import api.touchbase.converters.StringListConverter;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
+import api.touchbase.converters.EventsListConverter;
+import api.touchbase.converters.MapConverter;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
 import java.util.List;
+import java.util.Map;
+
 @DynamoDBTable(tableName = "touchbase_families")
 public class Family {
     private String familyId;
     private String familyName;
     private String familyPassword;
-    private List<String> familyEventIds;
-    private List<String> familyMemberIds;
+    private String familyPasswordSalt;
+    private List<Event> familyEvents;
+    private Map<String, String> familyMemberNamesToMemberIds;
 
     @DynamoDBHashKey(attributeName = "familyId")
     public String getFamilyId() {
@@ -25,7 +25,7 @@ public class Family {
         this.familyId = familyId;
     }
 
-    @DynamoDBAttribute(attributeName = "familyName")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = "FamilyNameIndex", attributeName = "familyName")
     public String getFamilyName() {
         return familyName;
     }
@@ -43,23 +43,32 @@ public class Family {
         this.familyPassword = familyPassword;
     }
 
-    @DynamoDBTypeConverted(converter = StringListConverter.class)
-    @DynamoDBAttribute(attributeName = "familyEventIds")
-    public List<String> getFamilyEventIds() {
-        return familyEventIds;
+    @DynamoDBAttribute(attributeName = "familyPasswordSalt")
+    public String getFamilyPasswordSalt() {
+        return familyPasswordSalt;
     }
 
-    public void setFamilyEventIds(List<String> familyEventIds) {
-        this.familyEventIds = familyEventIds;
+    public void setFamilyPasswordSalt(String familyPasswordSalt) {
+        this.familyPasswordSalt = familyPasswordSalt;
     }
 
-    @DynamoDBTypeConverted(converter = StringListConverter.class)
-    @DynamoDBAttribute(attributeName = "familyMemberIds")
-    public List<String> getFamilyMemberIds() {
-        return familyMemberIds;
+    @DynamoDBTypeConverted(converter = EventsListConverter.class)
+    @DynamoDBAttribute(attributeName = "familyEvents")
+    public List<Event> getFamilyEvents() {
+        return familyEvents;
     }
 
-    public void setFamilyMemberIds(List<String> familyMemberIds) {
-        this.familyMemberIds = familyMemberIds;
+    public void setFamilyEvents(List<Event> familyEventIds) {
+        this.familyEvents = familyEventIds;
+    }
+
+    @DynamoDBTypeConverted(converter = MapConverter.class)
+    @DynamoDBAttribute(attributeName = "familyMemberNamesToMemberIds")
+    public Map<String, String> getFamilyMemberNamesToMemberIds() {
+        return familyMemberNamesToMemberIds;
+    }
+
+    public void setFamilyMemberNamesToMemberIds(Map<String, String> familyMemberNamesToMemberIds) {
+        this.familyMemberNamesToMemberIds = familyMemberNamesToMemberIds;
     }
 }

@@ -52,7 +52,8 @@ signUpForm.onsubmit = async function(evt) {
             alert(res.data.errorMessage)
             location.reload();
         } else {
-            location.href = "http://localhost:63342/touchbase-api/frontend/members/member-page.html?memberId=" + res.data.member.memberId;
+            location.href = "https://touchbase-api-api-api.s3.us-west-2.amazonaws.com/members/member-page.html?memberId="
+                + res.data.member.memberId;
         }
     });
 }
@@ -60,19 +61,22 @@ signUpForm.onsubmit = async function(evt) {
 signInForm.onsubmit = async function(evt) {
     evt.preventDefault();
 
-    let id = document.getElementById("member-id").value;
+    let signInName = document.getElementById("sign-in-name").value;
+    let signInPassword = document.getElementById("sign-in-password").value;
 
     signInDiv.style.display = "none";
     signUpDiv.style.display = "none";
     loadingDiv.style.display = "block";
 
-    axios.get("https://49042ah3j2.execute-api.us-west-2.amazonaws.com/beta/" + id, headers).then((res) => {
+    axios.get("https://49042ah3j2.execute-api.us-west-2.amazonaws.com/beta/members?memberName=" + signInName
+        + "&memberPassword=" + signInPassword, headers).then((res) => {
         console.log(res.data);
         if (res.data.errorMessage != null) {
             alert(res.data.errorMessage)
             location.reload();
         } else {
-            location.href = "http://localhost:63342/touchbase-api/frontend/members/member-page.html?memberId=" + res.data.member.memberId;
+            location.href = "https://touchbase-api.s3.us-west-2.amazonaws.com/members/member-page.html?memberId="
+                + res.data.memberId;
         }
     });
 }
